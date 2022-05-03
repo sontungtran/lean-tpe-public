@@ -1061,6 +1061,7 @@ meta def bfs_step
             (pure ∘ option.is_some)
               (new_nodes.length) (pure none)) new_nodes,
 
+    -- TODO: Modify done_flag here
     match done_node with
     | (some node) := do {
       state_t.lift $ tactic.write node.state,

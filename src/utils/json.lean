@@ -111,7 +111,9 @@ meta def has_from_json_name_aux : json → tactic name
 | arg@(json.array (c::args)) := do {
   -- tactic.trace format!"GOT MATCH: {arg}",
   match c with
-  | "name.anonymous" := pure name.anonymous
+  | "name.anonymous" := do {
+    pure name.anonymous
+  }
   | "name.mk_string" := do {
     (str, nm_json) ← (do {
       [json.of_string str, nm_json] ← pure args,
